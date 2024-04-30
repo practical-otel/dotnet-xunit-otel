@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DD85CD3D-32E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticalOtel.xUnit.OpenTelemetry", "src\PracticalOtel.xUnit.OpenTelemetry\PracticalOtel.xUnit.OpenTelemetry.csproj", "{32C25F72-6049-43C7-8CF2-B02AAF72C952}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2FF7C7CB-E56A-4BB2-ABAF-E98F04F7B081}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticalOtel.xUnit.OpenTelemetry.Tests", "tests\PracticalOtel.xUnit.OpenTelemetry.Tests\PracticalOtel.xUnit.OpenTelemetry.Tests.csproj", "{34C59CAC-7E21-4F4E-9496-B4DD7466F32A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{32C25F72-6049-43C7-8CF2-B02AAF72C952}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32C25F72-6049-43C7-8CF2-B02AAF72C952}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32C25F72-6049-43C7-8CF2-B02AAF72C952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C59CAC-7E21-4F4E-9496-B4DD7466F32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C59CAC-7E21-4F4E-9496-B4DD7466F32A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C59CAC-7E21-4F4E-9496-B4DD7466F32A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C59CAC-7E21-4F4E-9496-B4DD7466F32A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{32C25F72-6049-43C7-8CF2-B02AAF72C952} = {DD85CD3D-32E6-47E4-BD4B-36DBF7CA9071}
+		{34C59CAC-7E21-4F4E-9496-B4DD7466F32A} = {2FF7C7CB-E56A-4BB2-ABAF-E98F04F7B081}
 	EndGlobalSection
 EndGlobal

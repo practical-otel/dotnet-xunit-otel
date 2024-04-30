@@ -4,14 +4,8 @@ using Xunit.Sdk;
 
 namespace PracticalOtel.xUnit.OpenTelemetry;
 
-class TracedTestMethodRunner : XunitTestMethodRunner {
-	private readonly IReflectionTypeInfo _class;
-
-	// We need to pass all the injected values into the base constructor
-	public TracedTestMethodRunner(ITestMethod testMethod, IReflectionTypeInfo @class, IReflectionMethodInfo method, IEnumerable<IXunitTestCase> testCases, IMessageSink diagnosticMessageSink, IMessageBus messageBus, ExceptionAggregator aggregator, CancellationTokenSource cancellationTokenSource, object[] constructorArguments)
-        : base(testMethod, @class, method, testCases, diagnosticMessageSink, messageBus, aggregator, cancellationTokenSource, constructorArguments) {
-		_class = @class;
-	}
+class TracedTestMethodRunner(ITestMethod testMethod, IReflectionTypeInfo @class, IReflectionMethodInfo method, IEnumerable<IXunitTestCase> testCases, IMessageSink diagnosticMessageSink, IMessageBus messageBus, ExceptionAggregator aggregator, CancellationTokenSource cancellationTokenSource, object[] constructorArguments) : XunitTestMethodRunner(testMethod, @class, method, testCases, diagnosticMessageSink, messageBus, aggregator, cancellationTokenSource, constructorArguments) {
+	private readonly IReflectionTypeInfo _class = @class;
 
     protected override async Task<RunSummary> RunTestCaseAsync(IXunitTestCase testCase) {
         var parameters = string.Empty;
@@ -37,8 +31,8 @@ class TracedTestMethodRunner : XunitTestMethodRunner {
             activity?.SetTag("test.total_count", result.Total);
             activity?.SetTag("test.time", result.Time);
 
-
-            activity?.SetStatus(result.Failed > 0 ? ActivityStatusCode.Error : ActivityStatusCode.Error);
+            if (result.Failed > 0)
+                activity?.SetStatus(ActivityStatusCode.Error);
 
             return result;
         }
