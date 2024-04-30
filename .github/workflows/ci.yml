@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-pack:
+    name: prerequisites
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+    - run: dotnet build --configuration Release 
+    - name: Create the package
+      run: dotnet pack --configuration Release -o artifacts
