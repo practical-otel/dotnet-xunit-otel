@@ -1,8 +1,8 @@
-name: Release Proper
+name: Release for xunit v2 (original)
 on:
   push:
     tags:
-      - '*.*.*-**'
+      - 'v2-*.*.*-**'
   workflow_dispatch:
 
 jobs:
@@ -21,9 +21,9 @@ jobs:
         source-url: https://api.nuget.org/v3/index.json
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_API_KEY }}
-    - run: dotnet build --configuration Release 
+    - run: dotnet build --configuration Release src/PracticalOtel.xUnit.OpenTelemetry/PracticalOtel.xUnit.OpenTelemetry.csproj 
     - name: Create the package
-      run: dotnet pack --configuration Release -o artifacts /p:Version=${{ github.ref_name }}
+      run: dotnet pack --configuration Release -o artifacts /p:Version=${{ github.ref_name }} src/PracticalOtel.xUnit.OpenTelemetry/PracticalOtel.xUnit.OpenTelemetry.csproj 
     - name: Publish the package to GPR
       run: dotnet nuget push artifacts/*.nupkg -k $NUGET_AUTH_TOKEN -s https://api.nuget.org/v3/index.json
       env:
