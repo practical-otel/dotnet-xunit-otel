@@ -8,3 +8,6 @@ dotnet_naming_symbols.private_fields.applicable_accessibilities = private
 
 dotnet_naming_style.prefix_underscore.capitalization = camel_case
 dotnet_naming_style.prefix_underscore.required_prefix = _
+
+# IDE0160: Convert to block scoped namespace
+csharp_style_namespace_declarations = file_scoped

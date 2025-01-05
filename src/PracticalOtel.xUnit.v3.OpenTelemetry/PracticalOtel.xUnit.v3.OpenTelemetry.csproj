@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Title>OpenTelemetry for xUnit.v3</Title>
+    <Description>An xUnit test framework that wraps tests in a trace to provide better visualisation of the test flows</Description>
+    <PackageProjectUrl>https://github.com/practical-otel/dotnet-xunit-otel</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/practical-otel/dotnet-xunit-otel</RepositoryUrl>
+    <PackageTags>OpenTelemetry xunit testing</PackageTags>
+    <Authors>MartinDotNet</Authors>
+    <Company>Practical Otel</Company>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="OpenTelemetry" Version="1.10.0" />
+    <PackageReference Include="OpenTelemetry.Api" Version="1.10.0" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.10.0" />
+    <PackageReference Include="xunit.v3" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
