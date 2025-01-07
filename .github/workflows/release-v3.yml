@@ -17,8 +17,7 @@ jobs:
       uses: actions/github-script@v7
       with:
         script: |
-          const version = context.ref.substring(3)
-          console.log("Payload is : " + JSON.stringify(context.payload))
+          const version = context.ref.substring(13)
           console.log("version is: " + version)
           return version
         result-encoding: string
