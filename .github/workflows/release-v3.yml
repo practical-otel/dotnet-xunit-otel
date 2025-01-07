@@ -18,6 +18,7 @@ jobs:
       with:
         script: |
           const version = context.ref.substring(3)
+          console.log("Payload is : " + JSON.stringify(context.payload))
           console.log("version is: " + version)
           return version
         result-encoding: string
